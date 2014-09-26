@@ -7,7 +7,7 @@ double_colon="s/::/much ::/g;"
 right_arrow="s/\->/very/g;"
 calc_operators0="s/+/much plus/g;"
 calc_operators1="s/*/very times/g;"
-no_instance="s/^\s*No instance/Many no instance/g;"
+instance="s/instance/such/g;"
 interactive="s/^<[^>]*>/beautiful &/g;"
 
 exec "`which ghc`" --interactive ${1+"$@"} 2>&1 |\
@@ -16,6 +16,7 @@ exec "`which ghc`" --interactive ${1+"$@"} 2>&1 |\
          $interactive\
          $double_colon\
          $restriction\
+         $instance\
          $right_arrow\
          $calc_operators0\
          $calc_operators1"
