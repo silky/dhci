@@ -1,0 +1,20 @@
+#!/usr/bin/env sh
+
+load_failed="s/^Failed:/Sadness/;"
+load_done="s/done./so wow/g;"
+double_colon="s/:: \(.*\) =>/:: So\1 =>/g;"
+right_arrow="s/\->/so to/g;"
+calc_operators0="s/+/much plus/g;"
+calc_operators1="s/*/very times/g;"
+no_instance="s/^\s*No instance/Many no instance/g;"
+interactive="s/^<[^>]*>/beautiful &/g;"
+
+exec "`which ghc`" --interactive ${1+"$@"} 2>&1 |\
+    sed "$load_failed\
+         $load_done\
+         $interactive\
+         $double_colon\
+         $right_arrow\
+         $double_colon\
+         $calc_operators0\
+         $calc_operators1"
