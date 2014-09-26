@@ -2,7 +2,8 @@
 
 load_failed="s/^Failed:/Sadness/;"
 load_done="s/done./so wow/g;"
-double_colon="s/:: \(.*\) =>/:: So \1 =>/g;"
+restriction="s/:: \(.*\) =>/:: So \1 =>/g;"
+double_colon="s/::/much ::/g;"
 right_arrow="s/\->/very/g;"
 calc_operators0="s/+/much plus/g;"
 calc_operators1="s/*/very times/g;"
@@ -14,6 +15,7 @@ exec "`which ghc`" --interactive ${1+"$@"} 2>&1 |\
          $load_done\
          $interactive\
          $double_colon\
+         $restriction\
          $right_arrow\
          $calc_operators0\
          $calc_operators1"
